@@ -69,17 +69,17 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
     formState: { isValid, isDirty },
   } = form;
 
-  const title = watch('queryParams.title');
+  const title = watch('title');
   const searchButtonDisabled = !isDirty || !isValid || !title;
 
   const [description, category, https] = watch([
-    'queryParams.description',
-    'queryParams.category',
-    'queryParams.https',
+    'description',
+    'category',
+    'https',
   ]);
 
   const processSearch = async (values: SearchForm) => {
-    const queries = pickBy(values.queryParams);
+    const queries = pickBy(values);
     await searchAPI(queries).catch(() => {
       toast({
         title: 'Error',
@@ -100,7 +100,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
       <div className="mb-4 flex flex-col">
         <div className="flex gap-2">
           <Input
-            {...register('queryParams.title')}
+            {...register('title')}
             type="text"
             placeholder="search API name"
             className="h-12 rounded-3xl font-semibold"
@@ -117,7 +117,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
               <div>
                 <div className="flex flex-col gap-2">
                   <Input
-                    {...register('queryParams.description')}
+                    {...register('description')}
                     className="rounded-lg"
                     type="text"
                     placeholder="search API description"
@@ -125,7 +125,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
 
                   <FormField
                     control={control}
-                    name="queryParams.category"
+                    name="category"
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
                         <FormLabel>Category</FormLabel>
@@ -169,7 +169,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
                                         key={categoryItem}
                                         onSelect={() => {
                                           form.setValue(
-                                            'queryParams.category',
+                                            'category',
                                             categoryItem
                                           );
                                           setIsCategoryPopoverOpen(false);
@@ -199,7 +199,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
                   <div className="flex items-center">
                     <FormField
                       control={control}
-                      name="queryParams.https"
+                      name="https"
                       render={({ field }) => (
                         <FormItem className="flex items-center gap-2 space-y-0">
                           <FormControl>

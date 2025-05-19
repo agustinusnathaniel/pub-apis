@@ -2,17 +2,22 @@
   "name": "pub-apis",
   "version": "1.2.0",
   "private": true,
-  "author": "sozonome",
+  "author": "agustinusnathaniel",
+  "engines": {
+    "node": ">=22.11.x"
+  },
+  "packageManager": "pnpm@10.11.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "build": "next build",
+    "turbo": "pnpm dlx turbo@2.5.0",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && pnpm format",
     "format": "prettier --write src",
-    "check:turbo": "pnpm dlx turbo@2.0.9 lint type-check",
+    "check:turbo": "pnpm turbo lint type-check",
     "type-check": "tsc --noEmit",
     "up-interactive": "pnpm up -i",
     "up-latest": "pnpm up-interactive -L",
@@ -45,6 +50,7 @@
     "next-seo": "^6.5.0",
     "next-themes": "^0.3.0",
     "nextjs-progressbar": "^0.0.16",
+    "octokit": "^4.1.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.51.5",
@@ -73,10 +79,5 @@
     "standard-version": "^9.5.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
-  },
-  "engines": {
-    "node": ">=16.8.x",
-    "pnpm": ">=8"
-  },
-  "packageManager": "pnpm@9.6.0"
+  }
 }
