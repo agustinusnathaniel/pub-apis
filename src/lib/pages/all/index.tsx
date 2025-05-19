@@ -2,15 +2,12 @@
 
 import chunk from 'lodash/chunk';
 import debounce from 'lodash/debounce';
-import Link from 'next/link';
 import type { ChangeEvent } from 'react';
 import React from 'react';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 import ItemContainer from '@/lib/components/item/ItemContainer';
 import type { PageNavigationButtonsProps } from '@/lib/components/list/PageNavigationButtons';
 import PageNavigationButtons from '@/lib/components/list/PageNavigationButtons';
-import { Button } from '@/lib/components/ui/button';
 import { Input } from '@/lib/components/ui/input';
 
 import type { APIListPageProps } from './types';
@@ -84,12 +81,12 @@ const APIListPage = ({ data }: APIListPageProps) => {
 
   return (
     <>
-      <Button asChild className="mb-8">
+      {/* <Button asChild className="mb-8">
         <Link href="/">
           <AiOutlineArrowLeft />
           back
         </Link>
-      </Button>
+      </Button> */}
 
       <div className="flex flex-col gap-2 md:flex-row md:items-center">
         <Input

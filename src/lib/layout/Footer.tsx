@@ -15,7 +15,7 @@ const Footer = () => {
     <footer className="flex w-full justify-center self-end">
       <div className="text-center">
         <p className="text-sm sm:text-base">
-          2020 - {new Date().getFullYear()}
+          {new Date().getFullYear()}
           {' | '}
           <a
             href="https://sznm.dev"
@@ -28,9 +28,9 @@ const Footer = () => {
           </a>
         </p>
 
-        {/* <p className="text-xs sm:text-sm">
-          Powered by https://api.publicapis.org/
-        </p> */}
+        <p className="text-xs sm:text-sm">
+          Powered by https://publicapis.dev/ API
+        </p>
       </div>
     </footer>
   );

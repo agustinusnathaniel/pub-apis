@@ -1,5 +1,5 @@
-import type { CategoryResponse } from '@/lib/services/publicapis/category/types';
+import type { CategoryListResponse } from '@/lib/services/public-apis/category/types';
 
 export type HomePageProps = {
-  categoryData?: CategoryResponse;
+  categoryListData?: CategoryListResponse;
 };

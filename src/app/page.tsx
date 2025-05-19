@@ -1,10 +1,10 @@
-import { TempClose } from '@/lib/pages/temp';
+import APIListPage from '@/lib/pages/all';
+import { fetchResources } from '@/lib/services/public-apis';
 
-const HomePage = async () => {
-  // const categoryData = await getCategoryList();
+const AllAPIPage = async () => {
+  const data = await fetchResources('resources');
 
-  // return <Home />;
-  return <TempClose />;
+  return <APIListPage data={data} />;
 };
 
-export default HomePage;
+export default AllAPIPage;

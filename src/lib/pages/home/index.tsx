@@ -8,7 +8,7 @@ import { EVENT_TYPE_NAVIGATE } from '@/lib/constants/events';
 import type { HomePageProps } from '@/lib/pages/home/types';
 import { trackEvent } from '@/lib/utils/trackEvent';
 
-const Home = ({ categoryData }: HomePageProps) => {
+const Home = ({ categoryListData }: HomePageProps) => {
   const handleClickAll = () => {
     trackEvent({
       eventName: 'Home: click see complete list',
@@ -16,7 +16,7 @@ const Home = ({ categoryData }: HomePageProps) => {
     });
   };
 
-  const categories = categoryData?.categories ?? [];
+  const categories = (categoryListData?.entries ?? []).map((item) => item.name);
 
   return (
     <div className="mx-auto mb-8 max-w-3xl">
