@@ -34,15 +34,14 @@ import {
 } from '@/lib/components/ui/popover';
 import { ScrollArea } from '@/lib/components/ui/scroll-area';
 import { Skeleton } from '@/lib/components/ui/skeleton';
-import { useToast } from '@/lib/components/ui/use-toast';
 import type { SearchForm } from '@/lib/models/searchForm';
 import { useApiList } from '@/lib/services/publicapis/list/hooks';
 import { cn } from '@/lib/styles/utils';
 
 import type { SearchContainerProps } from './types';
+import { toast } from 'sonner';
 
 const SearchContainer = ({ categories }: SearchContainerProps) => {
-  const { toast } = useToast();
   const [isCategoryPopoverOpen, setIsCategoryPopoverOpen] =
     React.useState<boolean>(false);
 
@@ -79,11 +78,15 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
   const processSearch = async (values: SearchForm) => {
     const queries = pickBy(values);
     await searchAPI(queries).catch(() => {
-      toast({
-        title: 'Error',
-        description:
-          'Error fetching data. Check your internet connection and try to refresh the page.',
-      });
+      toast(
+        <div>
+          <p className="font-bold">Error</p>
+          <p>
+            Error fetching data. Check your internet connection and try to
+            refresh the page.
+          </p>
+        </div>
+      );
     });
   };
 
