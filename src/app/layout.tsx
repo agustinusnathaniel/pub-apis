@@ -1,7 +1,7 @@
 import Script from 'next/script';
 
 import { ThemeProvider } from '@/lib/components/theme-provider';
-import { Toaster } from '@/lib/components/ui/toaster';
+import { Toaster } from '@/lib/components/ui/sonner';
 import { UMAMI_SRC, UMAMI_WEBSITE_ID } from '@/lib/constants/umami';
 import Layout from '@/lib/layout';
 import { fontSans } from '@/lib/styles/fonts';

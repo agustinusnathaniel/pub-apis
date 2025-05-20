@@ -3,8 +3,8 @@ import { ImCopy } from 'react-icons/im';
 
 import { Badge } from '@/lib/components/ui/badge';
 import { Button } from '@/lib/components/ui/button';
-import { useToast } from '@/lib/components/ui/use-toast';
 import type { APIEntry } from '@/lib/services/publicapis/list/types';
+import { toast } from 'sonner';
 
 type APIDetailsProps = Omit<APIEntry, 'API' | 'Description' | 'Link'>;
 
@@ -48,19 +48,15 @@ const ItemCard = ({ value }: ItemCardProps) => {
     Auth,
   };
 
-  const { toast } = useToast();
-
   const handleCopy = (e: React.MouseEvent) => {
     e.preventDefault();
     navigator.clipboard.writeText(APILink);
-    toast({
-      description: `"${APILink}" copied to clipboard!`,
-    });
+    toast(`"${APILink}" copied to clipboard!`);
   };
 
   return (
     <a
-      className="group relative grid gap-4 rounded-3xl border-2 border-solid border-gray-200 p-4 decoration-[none] duration-300 ease-out hover:scale-[1.02] dark:border-gray-700 md:p-8"
+      className="group relative grid gap-4 rounded-3xl border-2 border-solid border-gray-200 p-4 decoration-[none] duration-300 ease-out hover:scale-[1.02] md:p-8 dark:border-gray-700"
       href={APILink}
       target="_blank"
       rel="noopener noreferrer"
@@ -73,7 +69,7 @@ const ItemCard = ({ value }: ItemCardProps) => {
       <APIDetails {...apiDetailsProps} />
 
       <Button
-        className="absolute right-4 top-4 rounded-3xl md:right-6 md:top-6"
+        className="absolute top-4 right-4 rounded-3xl md:top-6 md:right-6"
         aria-label="copy button"
         onClick={handleCopy}
         variant="secondary"
