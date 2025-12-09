@@ -6,6 +6,7 @@ import { UMAMI_SRC, UMAMI_WEBSITE_ID } from '@/lib/constants/umami';
 import Layout from '@/lib/layout';
 import { fontSans } from '@/lib/styles/fonts';
 import '@/lib/styles/globals.css';
+
 import { cn } from '@/lib/styles/utils';
 
 export { metadata, viewport } from '@/lib/constants/root_metadata';

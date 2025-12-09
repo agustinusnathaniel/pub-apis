@@ -13,5 +13,5 @@ export const apiListParamsSchema = z
     (data) =>
       (data.https && (data.title || data.category || data.description)) ||
       !data.https,
-    { path: ['title'], message: 'Title must not be empty' }
+    { path: ['title'], message: 'Title must not be empty' },
   );

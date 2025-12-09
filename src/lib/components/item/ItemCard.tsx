@@ -1,10 +1,10 @@
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { ImCopy } from 'react-icons/im';
+import { toast } from 'sonner';
 
 import { Badge } from '@/lib/components/ui/badge';
 import { Button } from '@/lib/components/ui/button';
 import type { APIEntry } from '@/lib/services/publicapis/list/types';
-import { toast } from 'sonner';
 
 type APIDetailsProps = Omit<APIEntry, 'API' | 'Description' | 'Link'>;
 

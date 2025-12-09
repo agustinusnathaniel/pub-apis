@@ -5,6 +5,7 @@ import pickBy from 'lodash/pickBy';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaFilter } from 'react-icons/fa';
+import { toast } from 'sonner';
 
 import ItemContainer from '@/lib/components/item/ItemContainer';
 import { INITIAL_VALUES } from '@/lib/components/search/constants';
@@ -39,7 +40,6 @@ import { useApiList } from '@/lib/services/publicapis/list/hooks';
 import { cn } from '@/lib/styles/utils';
 
 import type { SearchContainerProps } from './types';
-import { toast } from 'sonner';
 
 const SearchContainer = ({ categories }: SearchContainerProps) => {
   const [isCategoryPopoverOpen, setIsCategoryPopoverOpen] =
@@ -67,7 +67,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
   } = form;
 
   const title = watch('title');
-  const searchButtonDisabled = !isDirty || !isValid || !title;
+  const searchButtonDisabled = !(isDirty && isValid && title);
 
   const [description, category, https] = watch([
     'description',
@@ -85,7 +85,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
             Error fetching data. Check your internet connection and try to
             refresh the page.
           </p>
-        </div>
+        </div>,
       );
     });
   };
@@ -141,13 +141,13 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
                                 role="combobox"
                                 className={cn(
                                   'justify-between',
-                                  !field.value && 'text-muted-foreground'
+                                  !field.value && 'text-muted-foreground',
                                 )}
                               >
                                 {field.value
                                   ? categories?.find(
                                       (categoryOption) =>
-                                        categoryOption === field.value
+                                        categoryOption === field.value,
                                     )
                                   : 'Select Category'}
                                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -171,7 +171,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
                                         onSelect={() => {
                                           form.setValue(
                                             'category',
-                                            categoryItem
+                                            categoryItem,
                                           );
                                           setIsCategoryPopoverOpen(false);
                                         }}
@@ -182,7 +182,7 @@ const SearchContainer = ({ categories }: SearchContainerProps) => {
                                             'ml-auto h-4 w-4',
                                             categoryItem === field.value
                                               ? 'opacity-100'
-                                              : 'opacity-0'
+                                              : 'opacity-0',
                                           )}
                                         />
                                       </CommandItem>

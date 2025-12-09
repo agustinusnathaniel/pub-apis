@@ -56,7 +56,7 @@ const APIListPage = ({ data }: APIListPageProps) => {
       setCurrentPage(updatePageNumber);
       window.scrollTo(0, 0);
     },
-    [currentPage]
+    [currentPage],
   );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -67,7 +67,7 @@ const APIListPage = ({ data }: APIListPageProps) => {
         setCurrentPage(0);
       }
     }, 200),
-    [currentPage]
+    [currentPage],
   );
 
   const pageNavigationButtonsProps: PageNavigationButtonsProps = React.useMemo(
@@ -76,7 +76,7 @@ const APIListPage = ({ data }: APIListPageProps) => {
       handleChangePage,
       lastPage: paginatedData.length - 1,
     }),
-    [currentPage, handleChangePage, paginatedData.length]
+    [currentPage, handleChangePage, paginatedData.length],
   );
 
   return (
