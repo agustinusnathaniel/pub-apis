@@ -6,6 +6,7 @@
   },
   "updatePinnedDependencies": false,
   "stabilityDays": 2,
+  "vulnerabilityAlerts": true,
   "timezone": "Asia/Jakarta",
   "schedule": ["before 1am on the first day of the month"]
 }
