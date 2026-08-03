@@ -1,0 +1,12 @@
+[
+  {
+    "API": "SnapAPI",
+    "Description": "Website screenshots, metadata extraction, PDF generation, text extraction",
+    "Auth": "apiKey",
+    "HTTPS": true,
+    "CORS": "yes",
+    "Category": "Development",
+    "Link": "https://snap.michaelcli.com",
+    "Documentation": "https://snap.michaelcli.com/docs.html"
+  }
+]
